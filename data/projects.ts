@@ -26,15 +26,15 @@ export const projects: Project[] = [
       "A bespoke indoor golf simulator suite designed for a private estate in Al Diriyah. Featuring a full TrackMan setup with custom-calibrated projection, premium synthetic turf, and a cinematic surround-sound environment — engineered for the most discerning golfer.",
     images: [
       {
-        src: "/images/golf-simulator-riyadh-marafei.jpg",
+        src: "/images/lucid-origin_High-end_golf_performance_academy_indoor_simulator_bay_dark_navy_and_black_inter-1.jpg",
         alt: "Premium golf simulator installation in private residence, Riyadh, Saudi Arabia — Marafei",
       },
       {
-        src: "/images/golf-simulator-riyadh-interior-marafei.jpg",
+        src: "/images/lucid-origin_Premium_commercial_golf_simulator_installation_multi-bay_setup_subtle_gold_accen-2.jpg",
         alt: "Interior view of luxury indoor golf simulator room in Al Diriyah — Marafei",
       },
       {
-        src: "/images/golf-simulator-riyadh-trackman-marafei.jpg",
+        src: "/images/lucid-origin_Ultra_luxury_VIP_indoor_golf_simulator_lounge_black_and_dark_navy_theme_gold_acc-3.jpg",
         alt: "TrackMan golf simulator setup in Riyadh private residence — Marafei",
       },
     ],
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       "A state-of-the-art golf academy featuring three TrackMan-equipped simulator bays, an analytics lab, and custom coaching stations. Designed to elevate golf training infrastructure in western Saudi Arabia with enterprise-grade precision.",
     images: [
       {
-        src: "/images/golf-simulator-jeddah-academy-marafei.jpg",
+        src: "/images/lucid-origin_Premium_commercial_golf_simulator_installation_multi-bay_setup_subtle_gold_accen-2.jpg",
         alt: "Golf academy simulator installation in Jeddah, Saudi Arabia — Marafei",
       },
       {
@@ -74,7 +74,7 @@ export const projects: Project[] = [
       "An ultra-premium commercial golf lounge in Dubai featuring dual simulator suites, a members-only bar, and integrated entertainment systems. Built for high-net-worth clientele seeking a refined indoor golf and social experience in the GCC.",
     images: [
       {
-        src: "/images/golf-simulator-dubai-lounge-marafei.jpg",
+        src: "/images/lucid-origin_Ultra_luxury_VIP_indoor_golf_simulator_lounge_black_and_dark_navy_theme_gold_acc-3.jpg",
         alt: "Commercial golf simulator lounge in Dubai, UAE — Marafei",
       },
       {
