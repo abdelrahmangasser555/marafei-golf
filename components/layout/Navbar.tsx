@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 
 const navLinks = [
   { label: "Solutions", href: "#solutions" },
@@ -22,7 +22,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-heading font-bold tracking-wider text-heading"
         >
-          Marafei
+          Marafei Golf
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -36,6 +36,15 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="mailto:golf@marafei.com"
+              className="flex items-center gap-2 text-sm tracking-wide text-body transition-colors duration-200 hover:text-primary"
+            >
+              <Mail size={18} />
+              golf@marafei.com
+            </a>
+          </li>
           <li>
             <a
               href="#contact"

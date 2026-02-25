@@ -22,9 +22,10 @@ export default function Hero() {
 
       <ParticleBackground />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 lg:px-8 flex items-center  justify-center flex-col text-center">
-        <div className="max-w-3xl ">
-          <motion.h1
+      <div className="relative z-10 w-full flex items-center justify-center">
+        <div className="mx-auto max-w-7xl px-6 py-32 lg:px-8 w-full flex flex-col items-center">
+          <div className="max-w-3xl text-center">
+            <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -68,13 +69,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-12 flex flex-wrap items-center gap-6 text-xs uppercase tracking-widest text-muted   md:flex-nowrap md:gap-8 px-4 py-2 rounded"
           >
-            <span>Certified TrackMan Installer</span>
+            <span className="flex-1">Certified TrackMan Installer</span>
             <span className="hidden h-4 w-px bg-border/40 sm:block" />
-            <span>Trusted by Golf Saudi</span>
+            <span className="flex-1">Trusted by Golf Saudi</span>
             <span className="hidden h-4 w-px bg-border/40 sm:block" />
-            <span>Turnkey Delivery across Saudi Arabia &amp; GCC</span>
+            <span className="flex-1">Turnkey Delivery across Saudi Arabia &amp; GCC</span>
           </motion.div>
         </div>
+      </div>
       </div>
     </section>
   );

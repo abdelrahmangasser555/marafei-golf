@@ -17,74 +17,92 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    slug: "al-diriyah-private-residence",
-    name: "Al Diriyah Private Residence",
-    location: "Riyadh, Saudi Arabia",
+    slug: "vip-golf-academy",
+    name: "VIP Golf Academy",
+    location: "(RGC) Riyadh Golf Club VIP Academy",
     tag: "Private Residence",
-    client: "Private Client",
+    client: "Golf Saudi",
     description:
-      "A bespoke indoor golf simulator suite designed for a private estate in Al Diriyah. Featuring a full TrackMan setup with custom-calibrated projection, premium synthetic turf, and a cinematic surround-sound environment — engineered for the most discerning golfer.",
+      "Marafei Golf delivered the complete design, installation, and technical integration of the RGC VIP Academy, creating a fully equipped high-performance golf training environment. The project included the implementation and calibration of advanced simulation systems using TrackMan IO and TrackMan 4, alongside biometric performance analysis through SportsBox AI and Smart2Move Force Plates. From concept design to final commissioning, all systems were seamlessly integrated to provide an accurate and professional training experience aligned with VIP academy standards.",
     images: [
       {
-        src: "/images/lucid-origin_High-end_golf_performance_academy_indoor_simulator_bay_dark_navy_and_black_inter-1.jpg",
+        src: "/solutions/proj_01/01.png",
         alt: "Premium golf simulator installation in private residence, Riyadh, Saudi Arabia — Marafei",
       },
       {
-        src: "/images/lucid-origin_Premium_commercial_golf_simulator_installation_multi-bay_setup_subtle_gold_accen-2.jpg",
+        src: "/solutions/proj_01/02.png",
         alt: "Interior view of luxury indoor golf simulator room in Al Diriyah — Marafei",
       },
       {
-        src: "/images/lucid-origin_Ultra_luxury_VIP_indoor_golf_simulator_lounge_black_and_dark_navy_theme_gold_acc-3.jpg",
+        src: "/solutions/proj_01/03.png",
         alt: "TrackMan golf simulator setup in Riyadh private residence — Marafei",
       },
+      {
+        src: "/solutions/proj_01/04.png",
+        alt: "Golf simulator room with TrackMan IO and SportsBox AI at RGC VIP Academy — Marafei",
+      } ,
+      {
+        src: "/solutions/proj_01/05.png",
+        alt: "High-performance golf training facility with TrackMan and Smart2Move at RGC VIP Academy — Marafei",
+
+      }
     ],
   },
   {
     id: "2",
-    slug: "jeddah-golf-academy",
-    name: "Jeddah Golf Academy",
-    location: "Jeddah, Saudi Arabia",
-    tag: "Golf Academy",
-    client: "Jeddah Sports Authority",
+    slug: "massarah-resort-golf-simulator",
+    name: "Commercial Multi-Sport Lounge",
+    location: "Massarah Resort Golf Simulator",
+    tag: "Commercial",
+    client: "Massarah Resort",
     description:
-      "A state-of-the-art golf academy featuring three TrackMan-equipped simulator bays, an analytics lab, and custom coaching stations. Designed to elevate golf training infrastructure in western Saudi Arabia with enterprise-grade precision.",
+      "Marafei Golf delivered the full design, fit-out, and installation of a commercial golf simulator facility at Massarah Resort, creating an immersive multi-sport entertainment experience. The project featured a TrackMan 4 golf simulator integrated within a fully customized environment, alongside additional interactive sports systems to support a versatile recreational and training space suitable for resort guests and commercial use.",
     images: [
       {
-        src: "/images/lucid-origin_Premium_commercial_golf_simulator_installation_multi-bay_setup_subtle_gold_accen-2.jpg",
-        alt: "Golf academy simulator installation in Jeddah, Saudi Arabia — Marafei",
+        src: "/solutions/proj_03/01.jpg",
+        alt: "Commercial golf simulator at Massarah Resort, Saudi Arabia — Marafei",
       },
       {
-        src: "/images/golf-simulator-jeddah-training-marafei.jpg",
-        alt: "Professional golf training bay with TrackMan in Jeddah academy — Marafei",
+        src: "/solutions/proj_03/02.jpg",
+        alt: "Multi-sport entertainment space at Massarah Resort — Marafei",
       },
       {
-        src: "/images/golf-simulator-jeddah-analytics-marafei.jpg",
-        alt: "Golf analytics lab in Jeddah Golf Academy — Marafei",
+        src: "/solutions/proj_03/03.jpg",
+        alt: "Golf simulator facility at Massarah Resort — Marafei",
       },
+      {
+        src: "/solutions/proj_03/04.jpg",
+        alt: "TrackMan 4 golf simulator installation at Massarah Resort — Marafei",
+      } ,
+      {
+        src: "/solutions/proj_03/05.jpg",
+        alt: "Commercial golf and multi-sport lounge at Massarah Resort — Marafei",
+      },
+      {
+        src: "/solutions/proj_03/06.jpg",
+        alt: "Immersive golf simulator environment at Massarah Resort — Marafei",
+      }
     ],
   },
   {
     id: "3",
-    slug: "dubai-commercial-lounge",
-    name: "Dubai Commercial Golf Lounge",
-    location: "Dubai, UAE",
-    tag: "Commercial",
-    client: "Confidential",
+    slug: "private-residence-golf-simulator",
+    name: "Private Residence Golf Simulator",
+    location: "Private Residence",
+    tag: "Private Residence",
+    client: "Private Client",
     description:
-      "An ultra-premium commercial golf lounge in Dubai featuring dual simulator suites, a members-only bar, and integrated entertainment systems. Built for high-net-worth clientele seeking a refined indoor golf and social experience in the GCC.",
+      "Marafei Golf designed and installed a private residential golf simulator tailored for both training and entertainment purposes. The setup features the Garmin Approach R50, delivering accurate performance tracking within a customized home environment that combines functionality, comfort, and immersive gameplay.",
     images: [
       {
-        src: "/images/lucid-origin_Ultra_luxury_VIP_indoor_golf_simulator_lounge_black_and_dark_navy_theme_gold_acc-3.jpg",
-        alt: "Commercial golf simulator lounge in Dubai, UAE — Marafei",
+        src: "/solutions/proj_02/01.png",
+        alt: "Private residential golf simulator installation — Marafei",
       },
       {
-        src: "/images/golf-simulator-dubai-interior-marafei.jpg",
-        alt: "Interior of luxury golf lounge with simulator bays in Dubai — Marafei",
+        src: "/solutions/proj_02/02.png",
+        alt: "Home golf simulator setup with Garmin Approach R50 — Marafei",
       },
-      {
-        src: "/images/golf-simulator-dubai-social-marafei.jpg",
-        alt: "Premium social golf experience in Dubai commercial lounge — Marafei",
-      },
+      
     ],
   },
 ];

@@ -7,28 +7,28 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const partners = [
   {
     name: "TrackMan",
-    src: "/images/partner-trackman.png",
+    src: "/partners/Big+Grey.png",
     alt: "TrackMan — Official golf simulator technology partner of Marafei",
   },
   {
     name: "Golf Saudi",
-    src: "/images/partner-golf-saudi.png",
+    src: "/partners/gold_saudi.png",
     alt: "Golf Saudi — Trusted partner of Marafei in Saudi Arabia",
   },
   {
-    name: "Foresight Sports",
-    src: "/images/partner-foresight.png",
-    alt: "Foresight Sports — Launch monitor partner for Marafei golf installations",
+    name: "SmartBox AI",
+    src: "/partners/smartboxai_01.png",
+    alt: "SmartBox AI — Launch monitor partner for Marafei golf installations",
   },
   {
-    name: "Full Swing",
-    src: "/images/partner-fullswing.png",
-    alt: "Full Swing Golf — Simulator technology partner of Marafei",
+    name: "Smart2Move",
+    src: "/partners/logo-s2m.png",
+    alt: "Smart2Move — Simulator technology partner of Marafei",
   },
   {
-    name: "AboutGolf",
-    src: "/images/partner-aboutgolf.png",
-    alt: "AboutGolf — Commercial golf simulator partner of Marafei",
+    name: "BENQ",
+    src: "/partners/BenQ_Logo_Typeface_Black.png",
+    alt: "BENQ — Commercial golf simulator partner of Marafei",
   },
 ];
 
@@ -57,8 +57,8 @@ export default function Partners() {
                 src={partner.src}
                 alt={partner.alt}
                 fill
-                className="object-contain opacity-40 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                sizes="144px"
+                className="object-contain "
+                sizes="166px"
               />
             </div>
           ))}

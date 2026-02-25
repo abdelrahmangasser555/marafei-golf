@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -14,6 +14,7 @@ interface ProjectModalProps {
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [currentImage, setCurrentImage] = useState(0);
   const [dragStart, setDragStart] = useState<number | null>(null);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   const nextImage = useCallback(() => {
     if (!project) return;
@@ -27,7 +28,29 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     );
   }, [project]);
 
-  const handleDragStart = (x: number) => setDragStart(x);
+  // Auto-cycle images on a time interval
+  useEffect(() => {
+    if (!project || !isAutoPlay || project.images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % project.images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [project, isAutoPlay]);
+
+  // Reset to first image when modal opens
+  useEffect(() => {
+    if (project) {
+      setCurrentImage(0);
+    }
+  }, [project]);
+
+  const handleDragStart = (x: number) => {
+    setDragStart(x);
+    setIsAutoPlay(false);
+  };
+
   const handleDragEnd = (x: number) => {
     if (dragStart === null) return;
     const diff = dragStart - x;
@@ -35,6 +58,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       diff > 0 ? nextImage() : prevImage();
     }
     setDragStart(null);
+    setIsAutoPlay(true);
   };
 
   return (
@@ -93,14 +117,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </AnimatePresence>
 
               <button
-                onClick={prevImage}
+                onClick={() => {
+                  prevImage();
+                  setIsAutoPlay(false);
+                }}
                 className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-bg/60 p-3 text-heading backdrop-blur-sm transition-colors hover:bg-bg/80"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
-                onClick={nextImage}
+                onClick={() => {
+                  nextImage();
+                  setIsAutoPlay(false);
+                }}
                 className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-bg/60 p-3 text-heading backdrop-blur-sm transition-colors hover:bg-bg/80"
                 aria-label="Next image"
               >
@@ -111,7 +141,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.images.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setCurrentImage(idx)}
+                    onClick={() => {
+                      setCurrentImage(idx);
+                      setIsAutoPlay(false);
+                    }}
                     className={`h-2 rounded-full transition-all duration-200 ${
                       idx === currentImage
                         ? "w-6 bg-primary"

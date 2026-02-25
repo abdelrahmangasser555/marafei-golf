@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Mail, Phone, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 const serviceAreas = [
   "Saudi Arabia",
@@ -10,10 +12,10 @@ const serviceAreas = [
   "Middle East",
 ];
 
-const quickLinks = [
-  { label: "Golf Simulators in Saudi Arabia", href: "/golf-simulators-saudi-arabia" },
-  { label: "Indoor Golf Simulator", href: "/indoor-golf-simulator" },
-  { label: "Golf Technology Middle East", href: "/golf-technology-middle-east" },
+const contacts = [
+  { icon: Mail, label: "Email", value: "golf@marafei.com", href: "mailto:golf@marafei.com" },
+  { icon: Phone, label: "Phone", value: "+966 53 023 0544", href: "tel:+966530230544" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+966 53 023 0544", href: "https://wa.me/966530230544" },
 ];
 
 export default function Footer() {
@@ -26,7 +28,7 @@ export default function Footer() {
               href="/"
               className="text-2xl font-heading font-bold tracking-wider text-heading"
             >
-              Marafei
+              <Image src="/partners/golf logo_white.png" alt="Marafei Golf Logo" width={150} height={50} className="object-contain" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-body">
               Marafei is the Middle East&apos;s premier golf technology
@@ -39,19 +41,26 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-heading">
-              Quick Links
+              Contacts
             </h3>
-            <ul className="mt-4 space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-body transition-colors hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <ul className="mt-4 space-y-4">
+              {contacts.map((contact) => {
+                const Icon = contact.icon;
+                return (
+                  <li key={contact.label}>
+                    <a
+                      href={contact.href}
+                      className="flex items-center gap-3 text-sm text-body transition-colors hover:text-primary"
+                    >
+                      <Icon size={18} className="text-primary" />
+                      <div>
+                        <div className="text-xs uppercase tracking-widest text-muted">{contact.label}</div>
+                        <div className="text-sm">{contact.value}</div>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

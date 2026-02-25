@@ -28,7 +28,7 @@ const solutions = [
     description:
       "Enterprise-grade service contracts. Proactive maintenance, firmware updates, and rapid-response technical support across the region.",
     badge: "Turnkey Delivery",
-    image: "/images/lucid-origin_Ultra_luxury_VIP_indoor_golf_simulator_lounge_black_and_dark_navy_theme_gold_acc-3.jpg",
+    image: "/images/lucid-origin_High-end_golf_performance_academy_indoor_simulator_bay_dark_navy_and_black_inter-1.jpg",
   },
 ];
 

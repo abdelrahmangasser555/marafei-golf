@@ -65,7 +65,7 @@ export default function Contact() {
           <div className="space-y-6">
             {(
               [
-                { name: "name", label: "Name", type: "text" },
+                { name: "name", label: "Company Name", type: "text" },
                 { name: "email", label: "Email", type: "email" },
               ] as const
             ).map((field) => (
