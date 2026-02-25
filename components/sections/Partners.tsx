@@ -3,31 +3,31 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { strict } from "assert";
 
 const partners = [
   {
     name: "TrackMan",
-    src: "/partners/Big+Grey.png",
+    src: "/images/trackman.png",
     alt: "TrackMan — Official golf simulator technology partner of Marafei",
+    size : "w-42 md:w-40",
   },
-  {
-    name: "Golf Saudi",
-    src: "/partners/gold_saudi.png",
-    alt: "Golf Saudi — Trusted partner of Marafei in Saudi Arabia",
-  },
+
   {
     name: "SmartBox AI",
-    src: "/partners/smartboxai_01.png",
+    src: "/images/smartbox golf.png",
     alt: "SmartBox AI — Launch monitor partner for Marafei golf installations",
+    size  : "w-42 md:w-40",
+    strict_size  : "400px"
   },
   {
     name: "Smart2Move",
-    src: "/partners/logo-s2m.png",
+    src: "/images/logo-s2m.png",
     alt: "Smart2Move — Simulator technology partner of Marafei",
   },
   {
     name: "BENQ",
-    src: "/partners/BenQ_Logo_Typeface_Black.png",
+    src: "/images/BenQ_Logo_Typeface_Black.png",
     alt: "BENQ — Commercial golf simulator partner of Marafei",
   },
 ];
@@ -48,20 +48,26 @@ export default function Partners() {
           transition={{ duration: 0.6 }}
           className="flex flex-wrap items-center justify-center gap-12 md:gap-16"
         >
-          {partners.map((partner) => (
+          {/* {partners.map((partner) => (
             <div
               key={partner.name}
-              className="group relative h-12 w-28 md:h-14 md:w-36"
+              className={`group relative h-12 w-28 md:h-14 md:w-36 ${partner.size ?? ""}`}
             >
               <Image
                 src={partner.src}
                 alt={partner.alt}
                 fill
-                className="object-contain "
-                sizes="166px"
+                className={`${partner.size ?? "w-28"} object-contain transition-transform duration-300 group-hover:scale-110`}
+                sizes={partner.strict_size ? partner.strict_size : "100vw"}
+              
+                
               />
             </div>
-          ))}
+          ))} */}
+          <Image src={"/images/tr.png"} alt="TrackMan — Official golf simulator technology partner of Marafei" width={140} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
+          <Image src={"/images/smartbox golf.png"} alt="SmartBox AI — Launch monitor partner for Marafei golf installations" width={160} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
+          <Image src={"/images/s2m.png"} alt="Smart2Move — Simulator technology partner of Marafei" width={160} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
+          <Image src={"/images/bb.png"} alt="BENQ — Commercial golf simulator partner of Marafei" width={160} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
         </motion.div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, Mail } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Solutions", href: "#solutions" },
@@ -22,7 +23,10 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-heading font-bold tracking-wider text-heading"
         >
-          Marafei Golf
+          <div className=" flex flex-col items-center justify-center">
+          <span className="">Marafei Golf</span>
+          <Image src={"/partners/golf logo_white.png"} alt="Marafei Golf logo" width={80} height={30} className="mt-1" />
+          </div>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">

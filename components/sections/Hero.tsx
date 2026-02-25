@@ -42,10 +42,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="mt-6  text-base leading-relaxed text-body md:text-md"
+            className="mt-6  text-base leading-relaxed text-body md:text-md text-white"
           >
             Marafei is the certified TrackMan partner delivering turnkey golf
-            simulator installations across Saudi Arabia and the GCC — from
+            simulator installations across Saudi Arabia and the GCC  from
             private residences to world-class academies.
           </motion.p>
 
@@ -67,13 +67,13 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-12 flex flex-wrap items-center gap-6 text-xs uppercase tracking-widest text-muted   md:flex-nowrap md:gap-8 px-4 py-2 rounded"
+            className="mt-12 flex flex-wrap items-center gap-6 text-xs uppercase tracking-widest text-muted flex-col sm:flex-col sm:flex-start sm:justify-start  md:flex-row     md:flex-nowrap md:gap-8 px-4 py-2 rounded"
           >
-            <span className="flex-1">Certified TrackMan Installer</span>
+            <span className="flex-1 text-white">Certified TrackMan Installer</span>
             <span className="hidden h-4 w-px bg-border/40 sm:block" />
-            <span className="flex-1">Trusted by Golf Saudi</span>
+            <span className="flex-1 text-white">Trusted by Golf Saudi</span>
             <span className="hidden h-4 w-px bg-border/40 sm:block" />
-            <span className="flex-1">Turnkey Delivery across Saudi Arabia &amp; GCC</span>
+            <span className="flex-1 text-white">Turnkey Delivery across Saudi Arabia &amp; GCC</span>
           </motion.div>
         </div>
       </div>

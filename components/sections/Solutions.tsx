@@ -8,7 +8,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const solutions = [
   {
     icon: Monitor,
-    title: "Simulator Design & Engineering",
+    title: "Simulator Design and Engineering",
     description:
       "Custom-engineered golf simulator environments tailored to your space. Full design, installation, and calibration across Saudi Arabia and the GCC.",
     badge: "Turnkey Delivery",
@@ -16,7 +16,7 @@ const solutions = [
   },
   {
     icon: Cpu,
-    title: "TrackMan Integration & Calibration",
+    title: "TrackMan Integration and Calibration",
     description:
       "Certified TrackMan partner delivering precision-calibrated launch monitors with software integration and analytics platforms for elite venues.",
     badge: "Turnkey Delivery",
@@ -24,7 +24,7 @@ const solutions = [
   },
   {
     icon: Wrench,
-    title: "Maintenance & Lifecycle Support",
+    title: "Maintenance and Lifecycle Support",
     description:
       "Enterprise-grade service contracts. Proactive maintenance, firmware updates, and rapid-response technical support across the region.",
     badge: "Turnkey Delivery",
@@ -47,7 +47,7 @@ export default function Solutions() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           title="Golf Simulator Solutions"
-          subtitle="End-to-end golf technology integration — designed, installed, and maintained by Marafei for elite clients across Saudi Arabia and the GCC."
+          subtitle="End-to-end golf technology integration  designed, installed, and maintained by Marafei for elite clients across Saudi Arabia and the GCC."
         />
 
         <div className="grid gap-8 md:grid-cols-3">
