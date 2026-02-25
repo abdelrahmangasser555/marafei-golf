@@ -33,8 +33,8 @@ export default function Hero() {
           >
            
             <span className="text-primary">
-              Elevating Golf Preformance <br className="hidden sm:block" />
-              through Technology
+              Elevating Golf Performance <br className="hidden sm:block" />
+              Through Technology
             </span>
           </motion.h1>
 
