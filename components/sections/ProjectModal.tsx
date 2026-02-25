@@ -39,10 +39,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     return () => clearInterval(interval);
   }, [project, isAutoPlay]);
 
-  // Reset to first image when modal opens
+  // Reset to first image and resume autoplay when modal opens
   useEffect(() => {
     if (project) {
       setCurrentImage(0);
+      setIsAutoPlay(true);
     }
   }, [project]);
 
@@ -89,7 +90,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </button>
 
             <div
-              className="relative aspect-[16/10] w-full cursor-grab active:cursor-grabbing"
+              className="relative aspect-16/10 w-full cursor-grab active:cursor-grabbing"
               onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
               onTouchEnd={(e) =>
                 handleDragEnd(e.changedTouches[0].clientX)

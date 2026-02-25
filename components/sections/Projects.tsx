@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProjectModal from "@/components/sections/ProjectModal";
@@ -28,10 +28,11 @@ export default function Projects() {
     const project = projects.find(p => p.id === hoveredProjectId);
     if (!project || project.images.length <= 1) return;
 
+    // Cycle every 2s after the initial immediate jump
     const interval = setInterval(() => {
       setImageIndices(prev => ({
         ...prev,
-        [hoveredProjectId]: ((prev[hoveredProjectId] ?? 0) + 1) % project.images.length
+        [hoveredProjectId]: ((prev[hoveredProjectId] ?? 1) + 1) % project.images.length
       }));
     }, 2000);
 
@@ -50,7 +51,6 @@ export default function Projects() {
           <div className="grid gap-8 md:grid-cols-3">
             {projects.map((project, i) => {
               const currentImageIndex = imageIndices[project.id] ?? 0;
-              const isHovered = hoveredProjectId === project.id;
 
               return (
               <motion.button
@@ -61,29 +61,36 @@ export default function Projects() {
                 viewport={{ once: true, margin: "-60px" }}
                 variants={cardVariants}
                 onClick={() => setSelected(project)}
-                onHoverStart={() => setHoveredProjectId(project.id)}
+                onHoverStart={() => {
+                  // Immediately jump to image 1
+                  setImageIndices(prev => ({ ...prev, [project.id]: 1 }));
+                  setHoveredProjectId(project.id);
+                }}
                 onHoverEnd={() => {
                   setHoveredProjectId(null);
                   setImageIndices(prev => ({ ...prev, [project.id]: 0 }));
                 }}
-                className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl border border-border/20 text-left transition-all duration-300 hover:border-primary/20 hover:shadow-soft"
+                className="group relative aspect-4/5 cursor-pointer overflow-hidden rounded-2xl border border-border/20 text-left transition-all duration-300 hover:border-primary/20 hover:shadow-soft"
               >
-                <motion.div
-                  key={currentImageIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={project.images[currentImageIndex].src}
-                    alt={project.images[currentImageIndex].alt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
+                <AnimatePresence mode="sync">
+                  <motion.div
+                    key={currentImageIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.7, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={project.images[currentImageIndex].src}
+                      alt={project.images[currentImageIndex].alt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-linear-to-t from-bg via-bg/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <span className="text-xs font-medium uppercase tracking-widest text-primary">
                     {project.tag}
