@@ -10,7 +10,7 @@ const solutions = [
     icon: Monitor,
     title: "Simulator Design and Engineering",
     description:
-      "Custom-engineered golf simulator environments tailored to your space. Full design, installation, and calibration across Saudi Arabia and the GCC.",
+      "Custom golf simulator rooms for villas, academies, and venues. Full design, installation, and calibration as your Gulf golf installer.",
     badge: "Turnkey Delivery",
     image: "/images/solutions_01.jpg",
   },
@@ -18,7 +18,7 @@ const solutions = [
     icon: Cpu,
     title: "TrackMan Integration and Calibration",
     description:
-      "Certified TrackMan partner delivering precision-calibrated launch monitors with software integration and analytics platforms for elite venues.",
+      "Authorized TrackMan dealer installing and calibrating TrackMan IO and TrackMan 4 with academy software for elite venues across the GCC.",
     badge: "Turnkey Delivery",
     image: "/images/lucid-origin_Ultra_luxury_VIP_indoor_golf_simulator_lounge_black_and_dark_navy_theme_gold_acc-3.jpg",
   },
@@ -47,7 +47,7 @@ export default function Solutions() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           title="Golf Simulator Solutions"
-          subtitle="End-to-end golf technology integration  designed, installed, and maintained by Marafei for elite clients across Saudi Arabia and the GCC."
+          subtitle="End-to-end golf simulator sales and installation — designed, installed, and maintained by Marafei Golf across Saudi Arabia and the GCC."
         />
 
         <div className="grid gap-8 md:grid-cols-3">

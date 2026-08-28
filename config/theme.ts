@@ -24,8 +24,8 @@ export const theme = {
 } as const;
 
 export const seo = {
-  siteName: "Marafei",
-  siteUrl: "https://marafei.com",
+  siteName: "Marafei Golf",
+  siteUrl: "https://golf.marafei.net",
   title: "Marafei | Premium Golf Simulators & Golf Technology in the Middle East",
   description:
     "Marafei designs and installs premium golf simulators and elite indoor golf environments across Saudi Arabia and the GCC. Certified TrackMan partner delivering turnkey golf technology solutions.",

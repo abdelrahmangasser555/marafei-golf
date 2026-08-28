@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import type { Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/seo/JsonLd";
+import { rootGraphSchema } from "@/lib/schema";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_TITLE,
+  KEYWORDS,
+  SITE_NAME,
+  SITE_URL,
+} from "@/config/seo";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -16,41 +29,40 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0a0a0b",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marafei.com"),
-  title:
-    "Marafei | Premium Golf Simulators & Golf Technology in the Middle East",
-  description:
-    "Marafei designs and installs premium golf simulators and elite indoor golf environments across Saudi Arabia and the GCC. Certified TrackMan partner delivering turnkey golf technology solutions.",
-  keywords: [
-    "golf simulators Middle East",
-    "golf simulator Saudi Arabia",
-    "indoor golf simulator Saudi",
-    "golf technology solutions GCC",
-    "TrackMan golf simulator Saudi Arabia",
-    "luxury golf simulator installation",
-    "golf simulator for private residence",
-    "golf academy simulator solutions",
-    "turnkey golf simulator installation",
-    "professional golf simulators GCC",
-    "indoor golf training technology Middle East",
-  ],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${DEFAULT_TITLE} | ${SITE_NAME}`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  keywords: [...KEYWORDS],
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: "Marafei",
+  category: "Golf simulator installation",
   alternates: {
-    canonical: "https://marafei.com",
+    canonical: SITE_URL,
   },
   openGraph: {
-    title:
-      "Marafei | Premium Golf Simulators & Golf Technology in the Middle East",
-    description:
-      "Marafei designs and installs premium golf simulators and elite indoor golf environments across Saudi Arabia and the GCC.",
-    url: "https://marafei.com",
-    siteName: "Marafei",
+    title: `${DEFAULT_TITLE} | ${SITE_NAME}`,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "en_US",
+    alternateLocale: ["ar_SA"],
     type: "website",
     images: [
       {
-        url: "/images/golf-simulator-luxury-room-marafei.jpg",
-        alt: "Premium golf simulator room by Marafei in Saudi Arabia",
+        url: DEFAULT_OG_IMAGE,
+        alt: "Premium indoor golf simulator room installed by Marafei Golf in Saudi Arabia",
         width: 1920,
         height: 1080,
       },
@@ -58,62 +70,28 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Marafei | Premium Golf Simulators & Golf Technology in the Middle East",
-    description:
-      "Certified TrackMan partner delivering turnkey golf simulator installations across Saudi Arabia and the GCC.",
-    images: ["/images/golf-simulator-luxury-room-marafei.jpg"],
+    title: `${DEFAULT_TITLE} | ${SITE_NAME}`,
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      name: "Marafei",
-      url: "https://marafei.com",
-      logo: "https://marafei.com/images/marafei-logo.png",
-      description:
-        "Ultra-premium golf simulator and golf technology integrator in the Middle East.",
-      areaServed: ["Middle East", "Saudi Arabia", "GCC", "UAE"],
-      sameAs: [],
-    },
-    {
-      "@type": "LocalBusiness",
-      name: "Marafei",
-      url: "https://marafei.com",
-      description:
-        "Premium golf simulator installations and golf technology solutions across Saudi Arabia and the GCC.",
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "SA",
-        addressRegion: "Riyadh",
-      },
-      areaServed: [
-        { "@type": "Country", name: "Saudi Arabia" },
-        { "@type": "Country", name: "United Arab Emirates" },
-      ],
-      priceRange: "$$$$$",
-    },
-    {
-      "@type": "Product",
-      name: "Premium Golf Simulators",
-      description:
-        "Turnkey golf simulator installation and integration services featuring TrackMan technology for private residences, golf academies, and commercial venues across the Middle East.",
-      brand: { "@type": "Brand", name: "Marafei" },
-      category: "Golf Technology",
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "SAR",
-        availability: "https://schema.org/InStock",
-      },
-    },
-  ],
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -123,18 +101,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body
         className={`${playfair.variable} ${inter.variable} font-body antialiased bg-bg text-body`}
       >
+        <JsonLd data={rootGraphSchema()} />
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -25,9 +25,10 @@ const sesClient = new SESClient({ region: 'eu-north-1' });
  *
  * @throws Will throw an error if sending the email fails.
  */
-export async function sendEmail(payload: EmailPayload): Promise<any> {
-  const { link = '', type = 'ra-system', notify = true, description = '' } = payload;
-
+export async function sendEmail(payload: EmailPayload): Promise<{
+  message: string;
+  response: unknown;
+}> {
   try {
     const command = new SendEmailCommand({
       Source: payload.source,

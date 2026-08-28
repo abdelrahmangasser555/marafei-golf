@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "node_modules_TO_DELETE_e96be4df/**",
+    "SEO-PLAYBOOK.md",
   ]),
 ]);
 

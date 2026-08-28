@@ -156,11 +156,11 @@ function buildEmailHtml({
                   <td>
                     <div style="font-size:11px;color:#4a4a4a;line-height:1.6;">
                       This notification was generated automatically by the Marafei Golf website.<br/>
-                      Certified TrackMan Installer — Saudi Arabia &amp; GCC
+                      Authorized TrackMan Dealer — Saudi Arabia &amp; GCC
                     </div>
                   </td>
                   <td align="right">
-                    <div style="font-size:10px;letter-spacing:2px;color:#bfa36b;text-transform:uppercase;">marafei.com</div>
+                      <div style="font-size:10px;letter-spacing:2px;color:#bfa36b;text-transform:uppercase;">golf.marafei.net</div>
                   </td>
                 </tr>
               </table>

@@ -69,7 +69,7 @@ export default function Contact() {
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <SectionHeading
           title="Start Your Project"
-          subtitle="Tell us about your vision. Our team will respond within 24 hours with a tailored consultation."
+          subtitle="Tell us about the room and the brief. Marafei Golf will respond within 24 hours with a survey plan for Saudi Arabia or the wider GCC."
         />
 
         <motion.form

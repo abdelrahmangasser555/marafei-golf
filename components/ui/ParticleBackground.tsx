@@ -17,7 +17,7 @@ export default function ParticleBackground() {
   const animationId = useRef<number>(0);
 
   const initParticles = useCallback((width: number, height: number) => {
-    const count = Math.min(Math.floor((width * height) / 18000), 80);
+    const count = Math.min(Math.floor((width * height) / 28000), 36);
     particles.current = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -34,6 +34,11 @@ export default function ParticleBackground() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches || window.innerWidth < 768) {
+      return;
+    }
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -101,7 +106,7 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-0"
+      className="pointer-events-none absolute inset-0 z-0"
       aria-hidden="true"
     />
   );

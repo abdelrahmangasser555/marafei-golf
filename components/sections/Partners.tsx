@@ -3,34 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { strict } from "assert";
-
-const partners = [
-  {
-    name: "TrackMan",
-    src: "/images/trackman.png",
-    alt: "TrackMan — Official golf simulator technology partner of Marafei",
-    size : "w-42 md:w-40",
-  },
-
-  {
-    name: "SmartBox AI",
-    src: "/images/smartbox golf.png",
-    alt: "SmartBox AI — Launch monitor partner for Marafei golf installations",
-    size  : "w-42 md:w-40",
-    strict_size  : "400px"
-  },
-  {
-    name: "Smart2Move",
-    src: "/images/logo-s2m.png",
-    alt: "Smart2Move — Simulator technology partner of Marafei",
-  },
-  {
-    name: "BENQ",
-    src: "/images/BenQ_Logo_Typeface_Black.png",
-    alt: "BENQ — Commercial golf simulator partner of Marafei",
-  },
-];
+import TrackmanBadge from "@/components/seo/TrackmanBadge";
+import { PARTNERS } from "@/config/seo";
 
 export default function Partners() {
   return (
@@ -38,36 +12,51 @@ export default function Partners() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           title="Technology Partners"
-          subtitle="Marafei partners with the world's leading golf technology manufacturers to deliver uncompromising quality."
+          subtitle="Marafei Golf is an authorized TrackMan dealer and BenQ golf projection partner. We also integrate SportsBox AI and Smart2Move in academy and performance rooms across the GCC."
         />
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 flex justify-center"
+        >
+          <TrackmanBadge variant="white" width={280} height={112} className="w-64 md:w-72" />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-12 md:gap-16"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {/* {partners.map((partner) => (
-            <div
+          {PARTNERS.map((partner) => (
+            <a
               key={partner.name}
-              className={`group relative h-12 w-28 md:h-14 md:w-36 ${partner.size ?? ""}`}
+              href={partner.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center rounded-2xl border border-border/30 bg-surface/50 p-8 text-center transition-all duration-300 hover:border-primary/40 hover:shadow-soft"
             >
-              <Image
-                src={partner.src}
-                alt={partner.alt}
-                fill
-                className={`${partner.size ?? "w-28"} object-contain transition-transform duration-300 group-hover:scale-110`}
-                sizes={partner.strict_size ? partner.strict_size : "100vw"}
-              
-                
-              />
-            </div>
-          ))} */}
-          <Image src={"/images/tr.png"} alt="TrackMan — Official golf simulator technology partner of Marafei" width={140} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
-          <Image src={"/images/smartbox golf.png"} alt="SmartBox AI — Launch monitor partner for Marafei golf installations" width={160} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
-          <Image src={"/images/s2m.png"} alt="Smart2Move — Simulator technology partner of Marafei" width={160} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
-          <Image src={"/images/bb.png"} alt="BENQ — Commercial golf simulator partner of Marafei" width={160} height={60} className="object-contain transition-transform duration-300 hover:scale-110" />
+              <div className="relative flex h-16 w-full items-center justify-center">
+                <Image
+                  src={partner.logo}
+                  alt={partner.alt}
+                  width={160}
+                  height={60}
+                  className="max-h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-6 text-sm font-heading font-semibold tracking-wide text-heading">
+                {partner.name}
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted">
+                {partner.description}
+              </p>
+            </a>
+          ))}
         </motion.div>
       </div>
     </section>
